@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+service HubForwarder {
+    rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
+}
+
+message SendMessageRequest {
+    enum SendMessageMode {
+        All = 0;
+        Users = 1;
+        Groups = 2;
+    }
+    message SendMessagePayload {
+        string type = 1;
+        string payload = 2;
+    }
+    SendMessageMode mode = 1;
+    SendMessagePayload payload = 2;
+    repeated string user_ids = 3;
+    repeated string groups = 4;
+}
+
+message SendMessageResponse {
+}

@@ -1,0 +1,9 @@
+include:
+  - project: "devops/template-based-cicd"
+    ref: main
+    file:
+      - ".gitlab-ci-base-template.yml"
+
+variables:
+  APP_NAME: rongos-backend-rongos-service
+  APP_DIR: rongos-backend
